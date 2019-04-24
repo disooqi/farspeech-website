@@ -29,14 +29,12 @@ p {
 }
 
 .round-button-mic {
-    display:block;
     width:150px;
     height:150px;
     line-height:150px;
     border: 0px solid #f5f5f5;
     border-radius: 50%;
     color:#f5f5f5;
-    position: absolute;
     text-align: center;
 	padding:20px;
     text-decoration:none;
@@ -105,17 +103,18 @@ p {
 
 
 .banner .left-banner-content {
-	padding-top: 175px;
+	padding-top: 100px;
 	padding-bottom: 175px;
-	padding-left: 120px;
+	padding-left: 40%;
 	text-align: left;
 	/*background-image: url(../img/banner-bg.png);*/
 	background-color: hsla(14, 100%, 53%, 0.6);
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: center center;
-	min-height: 680px;
-	height: 680px;
+	background-position: center;
+	min-height: 580px;
+	height: 580px;
+	position: relative;
 }
 
 .left-banner-content h6 {
@@ -143,14 +142,17 @@ p {
 	margin-top: 52px;
 }
 
+
+
 .far-right-banner-content {
-	padding: 100px 45px;
+	padding: 30px 45px;
 	background-color: #eee;
 	text-align: right;
 	direction: rtl;		
-	min-height: 680px;
-	height: 680px;
+	min-height: 580px;
+	height: 580px;
 	overflow: auto;
+	margin-bottom: 5px;
 }
 
 .far-right-banner-content h2 {
@@ -197,11 +199,11 @@ p {
 
 
 .right-banner-content {
-	padding: 100px 45px;
+	padding: 15px 45px;
 	background-color: #f4bc51;
 	text-align: center;		
-	min-height: 680px;
-	height: 680px;
+	min-height: 580px;
+	height: 580px;
 }
 
 .right-banner-content h2 {
