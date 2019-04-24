@@ -316,11 +316,13 @@ p {
 }
 
 .best-offer-right-content {
-	background-color: #eee;
+	background-color: #B8C3DF;
 	padding: 80px 40px;
 	min-height: 550px;
 	height: 550px;
 	overflow: auto;
+	text-align: right;
+	direction: rtl;
 }
 
 .best-offer-right-content h2 {
@@ -357,6 +359,54 @@ p {
 }
 
 .best-offer-right-content .pink-button {
+	margin-top: 45px;
+}
+
+
+.best-offer-far-right-content {
+	background-color: #b0bec5;
+	padding: 80px 40px;
+	min-height: 550px;
+	height: 550px;
+	overflow: auto;
+	text-align: right;
+	direction: rtl;
+}
+
+.best-offer-far-right-content h2 {
+	margin-top: 0px;
+	font-size: 32px;
+	font-weight: 300;
+	color: #121212;
+	line-height: 36px;
+}
+
+.best-offer-far-right-content em {
+	font-style: normal;
+	color: #b94e5e;
+	font-weight: 700;
+}
+
+.best-offer-far-right-content p {
+	margin: 18px 0px;
+}
+
+.best-offer-far-right-content ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+.best-offer-far-right-content ul li {
+	display: block;
+	font-size: 13px;
+	font-style: italic;
+	color: #7a7a7a;
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+
+.best-offer-far-right-content .pink-button {
 	margin-top: 45px;
 }
 
