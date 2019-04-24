@@ -22,7 +22,19 @@ http://www.templatemo.com/tm-513-avalon
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <!-- wavesurfer.js -->
+        <script src="../../dist/wavesurfer.js"></script>
+
+        <!-- microphone plugin -->
+        <script src="../../dist/plugin/wavesurfer.microphone.js"></script>
+
+        <!-- App -->
+        <script src="app.js"></script>
+
+        <!-- highlight.js for syntax highlighting in this example -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
 
 <body>
@@ -30,13 +42,16 @@ http://www.templatemo.com/tm-513-avalon
     <section class="banner" id="top">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-3">
                     <div class="left-banner-content">
                         <div class="text-content">
                             <h6>Time to speak...</h6>
                             <div class="line-dec"></div>
-                            
-                                <a href="#" class="round-button-mic" data-id="best-offer-section"><i class="fa fa-microphone"></i></a>
+                                <div id="demo">
+                                    <div class="controls">
+                                        <button class="round-button-mic" id="micBtn" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
+                                    </div>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -46,14 +61,39 @@ http://www.templatemo.com/tm-513-avalon
                         <h2>FarSpeech</h2>
                         <span>Visualising your transcripted speech</span>
                         <div class="line-dec"></div>
+                        <div id="waveform"></div>
                         <p>“ Information is typically lost when trancribing audio to text. Our goal with FarSpeech is to be able to represent some of these information in the text ”</p>
                         <ul class="social-icons">
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li>
                         </ul>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="far-right-banner-content">
+                            <div class="col-md-12 col-sm-12">
+                                <h2>Awesome &amp; Unique<br>Layout <em>Theme</em></h2>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+
+                                <ul>
+                                    <li>+ Aenean eget ex faucibus, tempor nibh vel.</li>
+                                    <li>+ Bibendum tortor. Suspendisse a diam viverra.</li>
+                                    <li>+ Finibus ipsum et, imperdiet felis.</li>
+                                    <li>+ Donec laoreet efficitur ultrices sit amet enim.</li>
+                                </ul>
+                                <div class="pink-button">
+                                    <a href="#" class="scroll-link" data-id="events-section">Discover More</a>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
@@ -66,8 +106,8 @@ http://www.templatemo.com/tm-513-avalon
             <div class="row">
                 <div class="col-md-4">
                     <div class="best-offer-left-content">
-                        <div class="icon"><img src="img/best-offer-icon.png" alt=""></div>
-                        <h4>Best Offer For You</h4>
+                        
+                        <h4>MAP HERE</h4>
                     </div>
                 </div>
                 <div class="col-md-8">
@@ -96,9 +136,6 @@ http://www.templatemo.com/tm-513-avalon
                                     <a href="#" class="scroll-link" data-id="events-section">Discover More</a>
                                 </div>
                             </div>
-                            <div class="col-md-6 col-sm-12">
-                                <img src="img/best-offer-image.png" alt="">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -110,72 +147,6 @@ http://www.templatemo.com/tm-513-avalon
 
 
     
-    <section class="services" id="services-section">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper first-service">
-                            <div class="front">
-                                <div class="icon">
-                                    <img src="img/heart-icon.png" alt="">
-                                </div>
-                                <h4>Aliquam finibus est</h4>
-                            </div>
-                            <div class="back">
-                                <p>Donec malesuada eu est in mattis. Aenean velit eros, blandit et tortor non, viverra hendrerit velit. Maecenas ut orci nec velit convallis lobortis sit amet ut magna. Ut rhoncus suscipit arcu, sed facilisis risus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper second-service">
-                            <div class="front">
-                                <div class="icon">
-                                    <img src="img/home-icon.png" alt="">
-                                </div>
-                                <h4>Nullam sed turpis</h4>
-                            </div>
-                            <div class="back">
-                                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Maecenas vel diam porttitor, fermentum ante et, ornare elit. Morbi nec diam ex. Pellentesque habitant morbi tristique senectus.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper third-service">
-                            <div class="front">
-                                <div class="icon">
-                                    <img src="img/revision-icon.png" alt="">
-                                </div>
-                                <h4>Sed in luctus</h4>
-                            </div>
-                            <div class="back">
-                                <p>Mauris congue ex eu enim suscipit, in suscipit est efficitur. Donec quis orci malesuada nunc lobortis aliquet et ut lacus. Sed erat magna, fringilla ac imperdiet in, pulvinar quis ante. Maecenas eleifend, sem vitae tristique.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-                        <div class="flipper fourth-service">
-                            <div class="front">
-                                <div class="icon">
-                                    <img src="img/chat-icon.png" alt="">
-                                </div>
-                                <h4>Fusce congue ipsum</h4>
-                            </div>
-                            <div class="back">
-                                <p>Donec venenatis erat at leo dictum, at dictum eros volutpat. Phasellus in dui sed purus varius hendrerit. Duis ac enim ac orci efficitur condimentum vel eget purus. Sed vel massa nulla. Curabitur consequat sem ac velit sollicitudin ornare.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 <!--     <section class="contact-us" id="contact-section"> 
         <div class="container-fluid">
@@ -242,6 +213,14 @@ http://www.templatemo.com/tm-513-avalon
     <script src="js/main.js"></script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+
+
+    <script>
+        $('.round-button-mic').click(function(){
+            $(this).find('i').toggleClass('fa-microphone fa-4x fa-microphone-slash fa-4x')
+        });
+    </script>
+
     <script type="text/javascript">
     $(document).ready(function() 
 	{
