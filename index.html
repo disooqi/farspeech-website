@@ -30,7 +30,7 @@ http://www.templatemo.com/tm-513-avalon
         <script src="dist/plugin/wavesurfer.microphone.js"></script>
 
         <!-- App -->
-        <script src="example/microphone/app.js"></script>
+        <!--<script src="example/microphone/app.js"></script>-->
 
         <!-- highlight.js for syntax highlighting in this example -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
@@ -48,10 +48,11 @@ http://www.templatemo.com/tm-513-avalon
                         <div class="text-content">
                             <h6>Time to speak...</h6>
                             <div class="line-dec"></div>
-                            <button class="round-button-mic" id="micBtn" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
+                            <button class="round-button-mic" onclick="toggleListening();" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
 
                             
                             <span hidden id="serverStatusBar" title="Number of available workers"></span>
+                            <div id="statusBar"></div>
 
 
                             <div class="col-xs-12" style="height:50px;"></div>
