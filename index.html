@@ -46,19 +46,48 @@ http://www.templatemo.com/tm-513-avalon
                     <div class="left-banner-content">
                         <div class="text-content">
                             <h6>Time to speak...</h6>
-                            <div class="line-dec"></div>
+                            <div class="controls">
+                                <button
+                                        id="buttonStart"
+                                        onclick="startListening();"
+                                        title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
+                                <button
+                                        id="buttonStop"
+                                        onclick="stopListening();"
+                                        title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stopp</button>
+                                <button
+                                        id="buttonCancel"
+                                        onclick="cancel();"
+                                        title="Cancels the speech recognition.">Katkesta</button>
+                            </div>
+                            <pre id="log" hidden></pre>
 
                             <button class="round-button-mic" id="micBtn" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
+                            <div class="line-dec"></div>
+                            <span id="serverStatusBar" title="Number of available workers"></span>
+                            <div class="controls">
+                                <button
+                                        onclick="init();"
+                                        title="Request access to the microphone">Init</button>
 
+                                <button
+                                        onclick="showConfig();"
+                                        title="Show the configuration of the Dictate object">Config</button>
+
+                                <button
+                                        onclick="clearLog();"
+                                        title="Clear the log">Clear log</button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="right-banner-content">
                         <div class="logo"><a href="index.html"><img src="example/microphone/img/logo.png" alt=""></a></div>
-                        <h2>FarSpeech</h2>
+                        <h2>FarSpeech </h2>
                         <span>Visualising your transcripted speech</span>
                         <div class="line-dec"></div>
+
                         <div id="waveform"></div>
                         <p>“ Information is typically lost when trancribing audio to text. Our goal with FarSpeech is to be able to represent some of these information in the text ”</p>
                         <ul class="social-icons">
@@ -70,27 +99,29 @@ http://www.templatemo.com/tm-513-avalon
                 <div class="col-md-5">
                     <div class="far-right-banner-content">
                             <div class="col-md-12 col-sm-12">
-                                <h2>Awesome &amp; Unique<br>Layout <em>Theme</em></h2>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <!--<h2>Awesome &amp; Unique<br>Layout <em>Theme</em></h2>-->
+                                <h2>مخرج التعرف الالي على الكلام</h2>
+                                <!--<textarea rows="8" cols="80" ></textarea>-->
+                                <p id="trans"></p>
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
+                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
 
-                                <ul>
-                                    <li>+ Aenean eget ex faucibus, tempor nibh vel.</li>
-                                    <li>+ Bibendum tortor. Suspendisse a diam viverra.</li>
-                                    <li>+ Finibus ipsum et, imperdiet felis.</li>
-                                    <li>+ Donec laoreet efficitur ultrices sit amet enim.</li>
-                                </ul>
-                                <div class="pink-button">
-                                    <a href="#" class="scroll-link" data-id="events-section">Discover More</a>
-                                </div>
+                                <!--<ul>-->
+                                    <!--<li>+ Aenean eget ex faucibus, tempor nibh vel.</li>-->
+                                    <!--<li>+ Bibendum tortor. Suspendisse a diam viverra.</li>-->
+                                    <!--<li>+ Finibus ipsum et, imperdiet felis.</li>-->
+                                    <!--<li>+ Donec laoreet efficitur ultrices sit amet enim.</li>-->
+                                <!--</ul>-->
+                                <!--<div class="pink-button">-->
+                                    <!--<a href="#" class="scroll-link" data-id="events-section">Discover More</a>-->
+                                <!--</div>-->
                             </div>
                     </div>
                 </div>
@@ -112,27 +143,17 @@ http://www.templatemo.com/tm-513-avalon
                     <div class="best-offer-right-content">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <h2>Awesome &amp; Unique<br>Layout <em>Theme</em></h2>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-
-                                <ul>
-                                    <li>+ Aenean eget ex faucibus, tempor nibh vel.</li>
-                                    <li>+ Bibendum tortor. Suspendisse a diam viverra.</li>
-                                    <li>+ Finibus ipsum et, imperdiet felis.</li>
-                                    <li>+ Donec laoreet efficitur ultrices sit amet enim.</li>
-                                </ul>
-                                <div class="pink-button">
-                                    <a href="#" class="scroll-link" data-id="events-section">Discover More</a>
-                                </div>
+                                <h2>تقطيع الكلام</h2>
+                                <p id="seg"></p>
+                                <!--<ul>-->
+                                    <!--<li>+ Aenean eget ex faucibus, tempor nibh vel.</li>-->
+                                    <!--<li>+ Bibendum tortor. Suspendisse a diam viverra.</li>-->
+                                    <!--<li>+ Finibus ipsum et, imperdiet felis.</li>-->
+                                    <!--<li>+ Donec laoreet efficitur ultrices sit amet enim.</li>-->
+                                <!--</ul>-->
+                                <!--<div class="pink-button">-->
+                                    <!--<a href="#" class="scroll-link" data-id="events-section">Discover More</a>-->
+                                <!--</div>-->
                             </div>
                         </div>
                     </div>
@@ -142,27 +163,9 @@ http://www.templatemo.com/tm-513-avalon
                     <div class="best-offer-far-right-content">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
-                                <h2>Awesome &amp; Unique<br>Layout <em>Theme</em></h2>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
-                                <p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>
+                                <h2>التعرف على الكائنات المسماة</em></h2>
+                                <div id="ner"></div>
 
-                                <ul>
-                                    <li>+ Aenean eget ex faucibus, tempor nibh vel.</li>
-                                    <li>+ Bibendum tortor. Suspendisse a diam viverra.</li>
-                                    <li>+ Finibus ipsum et, imperdiet felis.</li>
-                                    <li>+ Donec laoreet efficitur ultrices sit amet enim.</li>
-                                </ul>
-                                <div class="pink-button">
-                                    <a href="#" class="scroll-link" data-id="events-section">Discover More</a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -288,5 +291,12 @@ http://www.templatemo.com/tm-513-avalon
         };
     }
     </script>
+    <!-- Dictate JS -->
+    <script src="dictatejs/lib/dictate.js"></script>
+    <script src="dictatejs/lib/recorder.js"></script>
+
+    <!--<script src="dictatejs/demos/other/jquery-1.10.2.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="dictatejs/demos/demo.js"></script>
 </body>
 </html>

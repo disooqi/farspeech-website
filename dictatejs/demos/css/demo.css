@@ -1,0 +1,92 @@
+/*.controls {*/
+	/*display: block;*/
+	/*margin-top: .5em;*/
+	/*margin-bottom: .5em;*/
+	/*padding: 0;*/
+/*}*/
+#log {
+	/*font-size: 80%;*/
+	color: inherit;
+	font: inherit;
+}
+/*#statusBar {*/
+	/*font-family: monospace;*/
+	/*color: #9F000F;*/
+	/*margin-top: 1em;*/
+	/*margin-bottom: 1em;*/
+	/*padding: 0;*/
+	/*background-color: #7dd8b4;*/
+    /*width: 50%;*/
+/*}*/
+/*#serverStatusBar {*/
+	/*position: fixed;*/
+	/*bottom: 0;*/
+	/*right: 0.4em;*/
+	/*top: auto;*/
+	/*left: auto;*/
+	/*font-family: monospace;*/
+	/*padding: 0.2em 0.2em 0.2em 0.2em;*/
+    /*background-color: #7dd8b4;*/
+    /*width: 50%;*/
+/*}*/
+.highlight {
+	color: red;
+}
+ins {
+	background-color: #c6ffc6;
+	text-decoration: none;
+}
+
+del {
+	background-color: #ffc6c6;
+}
+.diff {
+	font-family: monospace;
+}
+
+
+.buttonsContainer {
+	display: table;
+	position: fixed;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	height: 10%;
+	text-align: center;
+	/*background-color: rgba(128,128,200,0.7);*/
+	background-color: #5dc4bf;
+	opacity: 1;
+}
+
+.live {
+	animation:changeColor 3s;
+	-moz-animation:changeColor 3s infinite; /* Firefox */
+	-webkit-animation:changeColor 3s infinite; /* Safari and Chrome */
+	transition: all 0.2s ease-in;
+}
+
+
+@-moz-keyframes changeColor /* Firefox */
+{
+	0%   {background:#5dc4bf;}
+	50%   {background:#F09090;}
+	100%   {background:#5dc4bf;}
+}
+
+@-webkit-keyframes changeColor /* Safari and Chrome */
+{
+	0%   {background:#5dc4bf;}
+	50%   {background:#F09090;}
+	100%   {background:#5dc4bf;}
+}
+
+
+.buttons {
+	display: table-cell;
+	vertical-align: middle;
+	padding: 0.5em;
+}
+
+.micButton {
+	width: 7em;
+}
