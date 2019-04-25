@@ -245,7 +245,8 @@ p {
 .far-right-banner-content p {
 	margin: 18px 0px;
 	font-size: 16 px;
-	direction: rtl;	
+	direction: rtl;
+	color: #7a7a7a;
 }
 
 .far-right-banner-content ul {
@@ -399,7 +400,7 @@ p {
 
 .best-offer-right-content h2 {
 	margin-top: 0px;
-	font-size: 32px;
+	font-size: 32px
 	font-weight: 300;
 	color: #b94e5e;
 	line-height: 36px;
@@ -414,6 +415,7 @@ p {
 .best-offer-right-content p {
 	margin: 18px 0px;
 	font-size: 16px;
+	color: #7a7a7a;
 }
 
 .best-offer-right-content ul {
@@ -463,6 +465,7 @@ p {
 .best-offer-far-right-content p {
 	margin: 18px 0px;
 	font-size: 16px;
+	color: #7a7a7a;
 }
 
 .best-offer-far-right-content ul {
