@@ -20,6 +20,7 @@ http://www.templatemo.com/tm-513-avalon
         <link rel="stylesheet" href="example/microphone/css/datepicker.css">
         <link rel="stylesheet" href="example/microphone/css/templatemo-style.css">
 
+
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
         <!-- wavesurfer.js -->
@@ -46,38 +47,48 @@ http://www.templatemo.com/tm-513-avalon
                     <div class="left-banner-content">
                         <div class="text-content">
                             <h6>Time to speak...</h6>
-                            <div class="controls">
-                                <button
-                                        id="buttonStart"
-                                        onclick="startListening();"
-                                        title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
-                                <button
-                                        id="buttonStop"
-                                        onclick="stopListening();"
-                                        title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stopp</button>
-                                <button
-                                        id="buttonCancel"
-                                        onclick="cancel();"
-                                        title="Cancels the speech recognition.">Katkesta</button>
-                            </div>
-                            <pre id="log" hidden></pre>
-
-                            <button class="round-button-mic" id="micBtn" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
                             <div class="line-dec"></div>
-                            <span id="serverStatusBar" title="Number of available workers"></span>
-                            <div class="controls">
+                            <button class="round-button-mic" id="micBtn" data-action="start"><i class="fa fa-microphone fa-4x"></i></button>
+
+                            
+                            <span hidden id="serverStatusBar" title="Number of available workers"></span>
+
+
+                            <div class="col-xs-12" style="height:50px;"></div>
+                            
+                            <div class="controls pt-5">
                                 <button
+                                        class="btn btn-square btn-success"
                                         onclick="init();"
-                                        title="Request access to the microphone">Init</button>
+                                        title="Request access to the microphone">Re-init Mic</button>
 
-                                <button
-                                        onclick="showConfig();"
-                                        title="Show the configuration of the Dictate object">Config</button>
 
-                                <button
-                                        onclick="clearLog();"
-                                        title="Clear the log">Clear log</button>
-                            </div>
+                                <button class="btn btn-square btn-info"
+                                        type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal">
+                                        View Log</button>
+
+                                <!-- View Log Modal -->
+                                <div class="modal left fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel">Log</h4>
+                                                <button
+                                                    onclick="clearLog();"
+                                                    title="Clear the log">Clear log</button>
+                                            </div>
+
+                                            <div class="modal-body">
+                                                <p><pre id="log" hidden></pre>
+                                                </p>
+                                            </div>
+
+                                        </div><!-- modal-content -->
+                                    </div><!-- modal-dialog -->
+                                </div><!-- modal -->
+                            </div> <!-- END control -->
                         </div>
                     </div>
                 </div>
@@ -103,25 +114,6 @@ http://www.templatemo.com/tm-513-avalon
                                 <h2>مخرج التعرف الالي على الكلام</h2>
                                 <!--<textarea rows="8" cols="80" ></textarea>-->
                                 <p id="trans"></p>
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-                                <!--<p>Avalon is a full-width responsive web template. Please tell your friends about <a href="https://www.facebook.com/templatemo" target="_parent">templatemo</a>. Thank you. Feel free to use this template. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cura bitur et sem blandit, rhoncus ante, varius libero. Cras elemen tum tincidunt ullamcorper.</p>-->
-
-                                <!--<ul>-->
-                                    <!--<li>+ Aenean eget ex faucibus, tempor nibh vel.</li>-->
-                                    <!--<li>+ Bibendum tortor. Suspendisse a diam viverra.</li>-->
-                                    <!--<li>+ Finibus ipsum et, imperdiet felis.</li>-->
-                                    <!--<li>+ Donec laoreet efficitur ultrices sit amet enim.</li>-->
-                                <!--</ul>-->
-                                <!--<div class="pink-button">-->
-                                    <!--<a href="#" class="scroll-link" data-id="events-section">Discover More</a>-->
-                                <!--</div>-->
                             </div>
                     </div>
                 </div>
@@ -145,15 +137,6 @@ http://www.templatemo.com/tm-513-avalon
                             <div class="col-md-12 col-sm-12">
                                 <h2>تقطيع الكلام</h2>
                                 <p id="seg"></p>
-                                <!--<ul>-->
-                                    <!--<li>+ Aenean eget ex faucibus, tempor nibh vel.</li>-->
-                                    <!--<li>+ Bibendum tortor. Suspendisse a diam viverra.</li>-->
-                                    <!--<li>+ Finibus ipsum et, imperdiet felis.</li>-->
-                                    <!--<li>+ Donec laoreet efficitur ultrices sit amet enim.</li>-->
-                                <!--</ul>-->
-                                <!--<div class="pink-button">-->
-                                    <!--<a href="#" class="scroll-link" data-id="events-section">Discover More</a>-->
-                                <!--</div>-->
                             </div>
                         </div>
                     </div>
