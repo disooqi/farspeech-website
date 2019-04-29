@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>True Masonry with Grid Layout</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Scheherazade" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="grid-layout">
+    <!--<button class="grid-item grid-item-1" style="background-color: #b04f60;">item 1</button>-->
+    <!--<button type="button" class="btn btn-light grid-item grid-item-1 farspeech-btn"><span id="serverStatusBar"-->
+                                                      <!--class="badge badge-warning" title="Number of available workers">-->
+            <!--</span><span class="sr-only"># users that can be accepted by the server</span></button>-->
+    <button type="button" class="btn btn-secondary micButton grid-item grid-item-1 farspeech-btn" id="buttonToggleListening"
+            onclick="toggleListening();" title="Starts/stops listening for speech.">Speak</button>
+    <button type="button" class="btn btn-secondary micButton grid-item grid-item-2 farspeech-btn" id="buttonCancel"
+            disabled="disabled" onclick="cancel();" title="Cancels the speech recognition.">Cancel</button>
+    <button type="button" class="btn btn-secondary micButton grid-item grid-item-3 farspeech-btn"
+            onclick="clearCache();">Clear cached data</button>
+    <button type="button" class="btn btn-secondary micButton grid-item grid-item-4 farspeech-btn"
+            onclick="init();">Re-initialize Microphone</button>
+    <div class="grid-item span-2 grid-item-5"  style="">Arabic Speech Recognition Output
+      <div id="trans">
+        معركة وادي الخزندار، أيضاً تعرف بمعركة مجمع المروج، ومعركة سلمية، ومعركة حمص الثالثة، دارت رحاها سنة 699 هـ /1299م بين المماليك بقيادة الناصر محمد بن قلاوون ومغول الإلخانات بقيادة محمود غازان شمال شرق حمص بسوريا، وانتهت بهزيمة ثقيلة للمسلمين بسبب قلة عددهم ونقص في الاستعدادات، ومع ذلك فإنهم أوقعوا خسائر فادحة بالجيش المغولي. بعد موت جنكيز خان سنة 1227م قسمت إمبراطورية المغول بين أبنائه الأربعة. فيما يخص علاقات الدولة المملوكية بالمغول، أصبح الجزء الغربي من دولة جنكيز خان من نصيب حفيده "باتو بن جوجي"، وعرف هذا الفرع باسم " القبيلة الذهبية " (خانات القفجاق).
+      </div>
+    </div>
+    <div class="grid-item span-2 grid-item-6">Named-Entity Recognition</div>
+    <div class="grid-item span-14 grid-item-7" style="background-color: #e4984c;">item 7</div>
+    <div class="grid-item span-12 grid-item-14" ><img src="qcri-hbku.svg"></div>
+    <div class="grid-item span-2 grid-item-10" style="background-color: #7fb285;">
+      Word Segmentation
+    </div>
+    <div class="grid-item grid-item-11" ></div>
+    <div class="grid-item grid-item-12" style="background-color: #db665a;text-align: center;">
+      <span class="value stopwatch h2 stat-item" style="margin-top: 38%; display: block;font-size: 30px;">00:00:00</span>
+    </div>
+    <div class="grid-item span-2 grid-item-13">Text Diacritization</div>
+    <!--<div class="grid-item grid-item-15" style="background-color: #767561;">item 15</div>-->
+    <div class="grid-item grid-item-21"><img src="farasa.png" style="width: 100%;margin: 5px"></div>
+
+    <div class="grid-item span-2 grid-item-8">item 8</div>
+    <div class="grid-item grid-item-17">item 17</div>
+    <div class="grid-item grid-item-9">item 9</div>
+
+    <div class="grid-item span-12 grid-item-22">item 22</div>
+    <div class="grid-item grid-item-20">item 20</div>
+
+    <div class="grid-item span-16 grid-item-23">item 23</div>
+    <div class="grid-item grid-item-19">Designed by:<a href="#" target="_blank"><img src="icon-3.png" style="width: 80%;margin-left: 15px;"></a></div>
+
+
+</div>
+  <script src='https://cdn.rawgit.com/FremyCompany/css-grid-polyfill/master/bin/css-polyfills.min.js'></script>
+
+  
+
+</body>
+
+</html>

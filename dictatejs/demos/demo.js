@@ -80,8 +80,7 @@ function __serverStatus(msg) {
 }
 
 function __updateTranscript(text) {
-	// $("#trans").val(text);
-	$("#trans").text(text);
+	$("#trans").val(text);
 	// $("#seg").val(text);
 
 

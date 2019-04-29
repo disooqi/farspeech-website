@@ -84,6 +84,7 @@ var dictate = new Dictate({
         __message("READY FOR SPEECH");
         $('.buttonsContainer').addClass('live');
         $("#buttonToggleListening").html('Stop');
+        $("#buttonToggleListening").addClass('farspeech-btn-pressed');
         stopwatch.start();
         $("#buttonToggleListening").addClass('highlight');
         $("#buttonToggleListening").prop("disabled", false);
@@ -112,6 +113,7 @@ var dictate = new Dictate({
         isConnected = false;
         __message("END OF SESSION");
         $("#buttonToggleListening").html('Speak');
+        $("#buttonToggleListening").removeClass('farspeech-btn-pressed');
         stopwatch.stop();
         $("#buttonToggleListening").removeClass('highlight');
         $("#buttonToggleListening").prop("disabled", false);
@@ -135,6 +137,7 @@ var dictate = new Dictate({
         hypText = prettyfyHyp(hypos[0].transcript, doUpper, doPrependSpace);
         val = $("#trans").val();
         $("#trans").val(val.slice(0, startPosition) + hypText + val.slice(endPosition));
+        __updateFarasaBlocks($("#trans").val());
         endPosition = startPosition + hypText.length;
         $("#trans").prop("selectionStart", endPosition);
     },
@@ -142,6 +145,7 @@ var dictate = new Dictate({
         hypText = prettyfyHyp(hypos[0].transcript, doUpper, doPrependSpace);
         val = $("#trans").val();
         $("#trans").val(val.slice(0, startPosition) + hypText + val.slice(endPosition));
+        __updateFarasaBlocks($("#trans").val());
         startPosition = startPosition + hypText.length;
         endPosition = startPosition;
         $("#trans").prop("selectionStart", endPosition);
@@ -153,7 +157,8 @@ var dictate = new Dictate({
         doPrependSpace = (hypText.length > 0) && !(/\n *$/.test(hypText));
 
         document.getElementById("trans").scrollTop = document.getElementById("trans").scrollHeight;
-
+        document.getElementById("ner").scrollTop = document.getElementById("ner").scrollHeight;
+        document.getElementById("seg").scrollTop = document.getElementById("seg").scrollHeight;
 
         var sortable = [];
         for (var dialect in hypos[1]) {
@@ -344,6 +349,55 @@ function __serverStatus(msg) {
 
 function __updateTranscript(text) {
     $("#trans").val(text);
+}
+
+function __updateFarasaBlocks(text) {
+    // $("#ner").text(text);
+
+    var segmenter = $.post('https://farasa-api.qcri.org/msa/webapi/segmenter', {text: text})
+        .done(function (data) {
+            //alert(data.output);
+            $("#seg").empty().append(data.segtext.join(" "));
+        })
+        .fail(function () {
+            console.log("segmenter error");
+        });
+
+    var diacritizer = $.post('https://farasa-api.qcri.org/msa/webapi/diacritizeV2', {text: text})
+        .done(function (data) {
+            //alert(data.output);
+            $( "#diac" ).empty().append( data.output );
+            // $("#farasa-result").css("background-color", "#ffffff");
+
+        })
+        .fail(function () {
+            console.log("diacritizer error");
+        })
+        .always(function () {
+            console.log("finished");
+        });
+
+    var segmenter = $.post('https://farasa-api.qcri.org/msa/webapi/pos', {text: text})
+        .done(function (data) {
+            //alert(data.output);
+            data.forEach((value, index, array) => {
+                array[index] = value.POS;
+        })
+            $("#pos").empty().append(data.join(" "));
+        })
+        .fail(function () {
+            console.log("segmenter error");
+        })
+
+    var ner = $.post('http://qatsdemo.cloudapp.net/farasa/requestExecuter.php', {
+        query:text, task:5})
+        .done(function (data) {
+            // alert(data);
+            $("#ner").empty().append(data);
+        })
+        .fail(function () {
+            console.log("NER error");
+        });
 }
 
 // Public methods (called from the GUI)
